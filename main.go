@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -27,11 +26,11 @@ func main() {
 	cmds.register("login", handlerLogin)
 
 	cfg, err := config.Read()
-	s := &state{cfg: &cfg}
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	s := &state{cfg: &cfg}
 	err = cmds.run(s, cmd)
 	if err != nil {
 		log.Fatal(err)
